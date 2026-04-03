@@ -21,6 +21,10 @@ const Apps = () => {
         setFilteredApps(filterSearch);
     }
 
+    const goBack = () => {
+        setIsClicked(false);
+    }
+
     return (
         <div className="w-11/12 mx-auto">
             <div className="text-center my-10">
@@ -61,9 +65,15 @@ const Apps = () => {
                 {
                     isClicked ?
                         filteredApps.length === 0 ?
-                            <div className="flex flex-col justify-center items-center col-span-full gap-5 my-10">
-                                <h3 className="font-bold text-4xl">App Not Founded</h3>
+                            <div className="flex flex-col justify-center items-center text-center col-span-full gap-5 my-10">
                                 <img src={AppNotFoundImg} />
+                                <h3 className="font-semibold text-4xl">OPPS!! APP NOT FOUND</h3>
+                                <p className="text-[#627382] text-xl">The App you are requesting is not found on our system. Please try another apps</p>
+                                <button
+                                    onClick={goBack}
+                                    className="bg-linear-to-tl from-[#632EE3] to-[#9F62F2] text-white btn rounded">
+                                    Go Back!
+                                </button>
                             </div>
 
                             : filteredApps.map(filter => <App
