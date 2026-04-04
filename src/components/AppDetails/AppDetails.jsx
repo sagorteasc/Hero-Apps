@@ -3,14 +3,26 @@ import DownloadImg from "../../assets/icon-downloads.png"
 import RatingImg from "../../assets/icon-ratings.png"
 import ReviewImg from "../../assets/icon-review.png"
 import { ComposedChart, Bar, XAxis, YAxis, CartesianGrid, Legend } from 'recharts';
+import { useState } from "react";
+import { storeInLocalStorage } from "../../utility/addToDb";
 
 const AppDetails = () => {
 
+    const [install, setInstall] = useState({
+        status: "installing"
+    });
     const { appId } = useParams();
     const appIdNumber = parseInt(appId);
     const appsData = useLoaderData()
     const currentApp = appsData.find(app => app.id === appIdNumber);
-    const { image, title, companyName, downloads, ratingAvg, reviews, size, ratings, description } = currentApp;
+    const { id, image, title, companyName, downloads, ratingAvg, reviews, size, ratings, description } = currentApp;
+
+    const handleInstall = (id) => {
+        storeInLocalStorage(id)
+        setInstall({
+            status: "installed"
+        })
+    }
 
     return (
         <div className="bg-[#f5f5f5]">
@@ -57,7 +69,20 @@ const AppDetails = () => {
                         </div>
 
                         <div className="flex justify-center md:justify-normal">
-                            <button className="bg-[#00D390] text-white btn font-semibold text-lg rounded">Install Now ({size} MB)</button>
+                            <button
+                                onClick={() => handleInstall(id)}
+                                className={
+                                    install.status === "installed" ?
+                                        "bg-[#00D390] text-white btn btn-disabled font-semibold text-lg rounded"
+                                        : "bg-[#00D390] text-white btn font-semibold text-lg rounded"
+                                }>
+                                {
+                                    install.status === "installed" ?
+                                        "Installed"
+                                        : `Install Now (${size} MB)`
+                                }
+
+                            </button>
                         </div>
                     </div>
                 </div>

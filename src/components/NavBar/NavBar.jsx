@@ -30,7 +30,7 @@ const NavBar = () => {
                 isActive ?
                     "bg-linear-to-tl from-[#632EE3] to-[#9F62F2] bg-clip-text text-transparent font-semibold underline"
                     : "text-black opacity-90 font-medium"}
-                to={"/"}>
+                to={"/installation"}>
                 Installation
             </NavLink>
         </li>
