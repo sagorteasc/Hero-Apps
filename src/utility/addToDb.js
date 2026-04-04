@@ -1,3 +1,4 @@
+// get data from local storage
 const getFromLocalStorage = () => {
     const installedApps = localStorage.getItem("installed_apps");
     if (installedApps) {
@@ -9,6 +10,7 @@ const getFromLocalStorage = () => {
     }
 }
 
+// store data in local storage
 const storeInLocalStorage = (id) => {
     const installedApps = getFromLocalStorage();
     if (installedApps.includes(id)) {
@@ -23,4 +25,12 @@ const storeInLocalStorage = (id) => {
     }
 }
 
-export { getFromLocalStorage, storeInLocalStorage };
+// remove data from localstorage
+const removeFromLocalStorage = (id) => {
+    const installedApps = getFromLocalStorage();
+    const remainingApps = installedApps.filter(appId => appId !== id);
+    const remainingAppsStr = JSON.stringify(remainingApps);
+    localStorage.setItem("installed_apps", remainingAppsStr);
+}
+
+export { getFromLocalStorage, storeInLocalStorage, removeFromLocalStorage };

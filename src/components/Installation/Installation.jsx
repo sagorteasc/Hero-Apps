@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
-import { getFromLocalStorage } from "../../utility/addToDb";
+import { getFromLocalStorage, removeFromLocalStorage } from "../../utility/addToDb";
 import { FaCaretDown } from "react-icons/fa";
 import InstalledApp from "../InstalledApp/InstalledApp";
+import AppNotFoundImg from "../../assets/App-Error.png"
 
 const Installation = () => {
 
@@ -14,6 +15,14 @@ const Installation = () => {
     }, []);
 
     const installedApps = appsData.filter(app => downloaded.includes(app.id));
+
+    // uninstall the app
+    const handleUninstall = (id) => {
+        removeFromLocalStorage(id);
+
+        const uninstallApp = downloaded.filter(appId => appId !== id);
+        setDownloaded(uninstallApp);
+    }
 
     return (
         <div className="bg-[#f5f5f5]">
@@ -37,10 +46,17 @@ const Installation = () => {
 
                 <div>
                     {
-                        installedApps.map(installApp => <InstalledApp
-                            key={installApp.id}
-                            installApp={installApp}
-                        ></InstalledApp>)
+                        installedApps.length === 0 ?
+                            <div className="flex flex-col justify-center items-center text-center col-span-full gap-5 my-10">
+                                <img src={AppNotFoundImg} />
+                                <h3 className="font-semibold text-4xl">OPPS!! No Application Has Been Installed</h3>
+                            </div>
+                            :
+                            installedApps.map(installApp => <InstalledApp
+                                key={installApp.id}
+                                installApp={installApp}
+                                handleUninstall={handleUninstall}
+                            ></InstalledApp>)
                     }
                 </div>
             </div>

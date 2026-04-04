@@ -1,10 +1,10 @@
 import DownloadImg from "../../assets/icon-downloads.png"
 import RatingImg from "../../assets/icon-ratings.png"
 
-const InstalledApp = ({ installApp }) => {
+const InstalledApp = ({ installApp, handleUninstall }) => {
 
     console.log(installApp);
-    const { image, title, downloads, ratingAvg, size } = installApp;
+    const { id, image, title, downloads, ratingAvg, size } = installApp;
 
     return (
         <div>
@@ -18,7 +18,7 @@ const InstalledApp = ({ installApp }) => {
                     <div className="card-body">
                         <div className="md:flex md:justify-between md:items-center">
                             <div>
-                                <h2 className="font-medium text-xl">{title}</h2>
+                                <h2 className="font-medium text-xl mb-2">{title}</h2>
 
                                 <div className="flex items-center gap-10">
                                     <div>
@@ -36,7 +36,11 @@ const InstalledApp = ({ installApp }) => {
                             </div>
 
                             <div className="card-actions mt-4 justify-end md:mt-0">
-                                <button className="bg-[#00D390] text-white btn">Uninstall</button>
+                                <button
+                                    onClick={() => handleUninstall(id)}
+                                    className="bg-[#00D390] text-white btn">
+                                    Uninstall
+                                </button>
                             </div>
                         </div>
                     </div>
