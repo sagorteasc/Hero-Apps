@@ -1,5 +1,6 @@
 import DownloadImg from "../../assets/icon-downloads.png"
 import RatingImg from "../../assets/icon-ratings.png"
+import PropTypes from "prop-types";
 
 const InstalledApp = ({ installApp, handleUninstall }) => {
 
@@ -48,5 +49,10 @@ const InstalledApp = ({ installApp, handleUninstall }) => {
         </div>
     );
 };
+
+InstalledApp.propTypes = {
+    installApp: PropTypes.object.isRequired,
+    handleUninstall: PropTypes.func.isRequired
+}
 
 export default InstalledApp;

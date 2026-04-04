@@ -1,6 +1,7 @@
 import { BsDownload } from "react-icons/bs";
 import { IoIosStar } from "react-icons/io";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const App = ({ app }) => {
 
@@ -28,5 +29,9 @@ const App = ({ app }) => {
         </div>
     );
 };
+
+App.propTypes = {
+    app: PropTypes.object.isRequired
+}
 
 export default App;

@@ -1,3 +1,5 @@
+import { toast } from 'react-toastify';
+
 // get data from local storage
 const getFromLocalStorage = () => {
     const installedApps = localStorage.getItem("installed_apps");
@@ -14,14 +16,14 @@ const getFromLocalStorage = () => {
 const storeInLocalStorage = (id) => {
     const installedApps = getFromLocalStorage();
     if (installedApps.includes(id)) {
-        alert("App Is Already Installed");
+        toast.error("App Is Already Installed");
         return;
     }
     else {
         installedApps.push(id);
         const installedAppsStr = JSON.stringify(installedApps);
         localStorage.setItem("installed_apps", installedAppsStr);
-        alert("App Successfully Installed");
+        toast.success("App Successfully Installed");
     }
 }
 
@@ -31,7 +33,7 @@ const removeFromLocalStorage = (id) => {
     const remainingApps = installedApps.filter(appId => appId !== id);
     const remainingAppsStr = JSON.stringify(remainingApps);
     localStorage.setItem("installed_apps", remainingAppsStr);
-    alert("App Has Been Uninstalled");
+    toast.warn("App Has Been Uninstalled");
 }
 
 export { getFromLocalStorage, storeInLocalStorage, removeFromLocalStorage };

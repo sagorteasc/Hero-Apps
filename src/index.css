@@ -6,3 +6,8 @@
 body {
   font-family: "Inter", sans-serif;
 }
+
+.Toastify__toast {
+  width: 320px;
+  max-width: 90vh;
+}

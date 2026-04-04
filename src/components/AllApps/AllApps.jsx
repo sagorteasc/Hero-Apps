@@ -1,6 +1,7 @@
 import { use } from "react";
 import App from "../App/App";
 import { useLocation } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const AllApps = ({ appsPromise }) => {
 
@@ -20,5 +21,9 @@ const AllApps = ({ appsPromise }) => {
         </div>
     );
 };
+
+AllApps.propTypes = {
+    appsPromise: PropTypes.instanceOf(Promise).isRequired
+}
 
 export default AllApps;
