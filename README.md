@@ -1,16 +1,38 @@
-# React + Vite
+# 🚀 Hero Apps
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern web application to explore, install, and manage apps with an interactive UI and smooth user experience.
 
-Currently, two official plugins are available:
+📂 **GitHub Repo:** https://github.com/sagorteasc/Hero-Apps
+🔗 **Live Site:** https://sagorteasc-hero-apps.vercel.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 📌 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 🔍 Search functionality to quickly find apps
+- 📊 App ratings visualization using Recharts
+- 📥 Install apps and store data in local storage
+- ❌ Remove installed apps easily
+- 🔃 Sort apps (Ascending & Descending)
+- 🔔 Toast notifications with React Toastify
+- ⚠️ Custom error page for invalid routes
+- 📱 Responsive and user-friendly design
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Technologies Used
+
+- React.js
+- React Router
+- Recharts
+- React Toastify
+- Tailwind CSS
+- Local Storage API
+
+---
+
+## 👨‍💻 Author
+
+**Sagor Teasc**
+
+---
