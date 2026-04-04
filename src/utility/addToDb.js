@@ -14,7 +14,7 @@ const getFromLocalStorage = () => {
 const storeInLocalStorage = (id) => {
     const installedApps = getFromLocalStorage();
     if (installedApps.includes(id)) {
-        alert("App Already Installed");
+        alert("App Is Already Installed");
         return;
     }
     else {
@@ -31,6 +31,7 @@ const removeFromLocalStorage = (id) => {
     const remainingApps = installedApps.filter(appId => appId !== id);
     const remainingAppsStr = JSON.stringify(remainingApps);
     localStorage.setItem("installed_apps", remainingAppsStr);
+    alert("App Has Been Uninstalled");
 }
 
 export { getFromLocalStorage, storeInLocalStorage, removeFromLocalStorage };

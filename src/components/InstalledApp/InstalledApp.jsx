@@ -3,7 +3,6 @@ import RatingImg from "../../assets/icon-ratings.png"
 
 const InstalledApp = ({ installApp, handleUninstall }) => {
 
-    console.log(installApp);
     const { id, image, title, downloads, ratingAvg, size } = installApp;
 
     return (
