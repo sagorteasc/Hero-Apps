@@ -7,17 +7,12 @@ import AppNotFoundImg from "../../assets/App-Error.png"
 
 const Installation = () => {
 
-    // const [descendingSort, setDescendingSort] = useState([]);
-    const [downloaded, setDownloaded] = useState([]);
 
     const appsData = useLoaderData();
 
-    useEffect(() => {
-        const appIds = getFromLocalStorage();
-        const installedApps = appsData.filter(app => appIds.includes(app.id));
-        setDownloaded(installedApps);
-    }, []);
-
+    const appIds = getFromLocalStorage();
+    const installedApps = appsData.filter(app => appIds.includes(app.id));
+    const [downloaded, setDownloaded] = useState(installedApps);
 
     // uninstall the app
     const handleUninstall = (id) => {
@@ -43,7 +38,7 @@ const Installation = () => {
 
     return (
         <div className="bg-[#f5f5f5]">
-            <div className="w-11/12 mx-auto pb-20">
+            <div className="w-11/12 mx-auto pb-10">
                 <div className="py-10 text-center">
                     <h3 className="font-bold text-5xl mb-2">Your Installed Apps</h3>
                     <p className="text-[#627382] text-xl">Explore All Trending Apps on the Market developed by us</p>
